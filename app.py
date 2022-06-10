@@ -4,6 +4,7 @@ from flask import Flask, render_template
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 
+
 @app.route("/")
 def main_page():
     candidates = load_candidates()
@@ -35,13 +36,14 @@ def search_by_name(candidate_name):
                            name=candidates,
                            )
 
+
 @app.route("/skill/<skill_name>")
 def search_by_skills(skill_name):
     candidates_by_skills = get_candidates_by_skill(skill_name)
     return render_template("skill.html",
                            count=len(candidates_by_skills),
                            skill_name=skill_name,
-                           candidates = candidates_by_skills
+                           candidates=candidates_by_skills
                            )
 
 
