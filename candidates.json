@@ -61,5 +61,14 @@
     "gender": "female",
     "age": 33,
     "skills": "Python, Django, flask"
+  },
+    {
+    "id": 8,
+    "name": "Sheri Torres",
+    "picture": "https://picsum.photos/200",
+    "position": "Delphi developer",
+    "gender": "female",
+    "age": 26,
+    "skills": "python, java, pascal, fortran, basic"
   }
 ]
