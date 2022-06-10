@@ -1,7 +1,18 @@
-<h1>Найдено кандидатов {{ count }}</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<h1>Найдено кандидатов {{ name|length }}</h1>
 
 {% for person in name %}
     <p>
-        <a href="/candidate/{{ person['id'] }}"> {{ person['name'] }} </a>
+        <a href="/candidate/{{ person.id }}"> {{ person.name }} </a>
     </p>
 {% endfor %}
+</body>
+</html>

@@ -1,7 +1,17 @@
-<h1>Найдено со скиллом {{skill_name}}: {{count}}</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<h1>Найдено со скиллом {{skill_name}}: {{candidates|length}}</h1>
 
 {% for person in candidates %}
   <p>
-    <a href="/candidate/{{ person['id'] }}"> {{person['name']}}</a>
+    <a href="/candidate/{{ person.id }}"> {{person.name}}</a>
   </p>
 {% endfor %}
+</body>
+</html>

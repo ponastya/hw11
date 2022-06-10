@@ -1,8 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
 <h1>Все кандидаты</h1>
 
-{% for name, id in candidates_name.items() %}
-    <p> <a href='/candidate/{{ id }} '> {{ name }}</a> </p>
+{% for candidate in candidates %}
+    <p> <a href='/candidate/{{ candidate.id }} '> {{ candidate.name }}</a> </p>
 
 {% endfor %}
 
-
+</body>
+</html>

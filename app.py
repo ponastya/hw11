@@ -7,24 +7,17 @@ app.config['JSON_AS_ASCII'] = False
 
 @app.route("/")
 def main_page():
-    candidates = load_candidates()
-    workers = {}
-    for candidate in candidates:
-        workers[candidate['name']] = candidate['id']
-    print(workers)
+    candidates: list[dict] = load_candidates()
     return render_template("list.html",
-                           candidates_name=workers,
-                           )
+                           candidates_name=candidates)
 
 @app.route("/candidate/<int:uid>")
 def candidates_by_id(uid: int):
-    candidate = get_candidate(uid)
+    candidate: dict = get_candidate(uid)
+    if not candidate:
+        return 'Нет такого кандидата'
     return render_template("card.html",
-                           name=candidate['name'],
-                           position=candidate['position'],
-                           skills=candidate['skills'],
-                           img=candidate['picture']
-                           )
+                           candidate=candidate)
 
 
 @app.route("/search/<candidate_name>")
@@ -32,7 +25,6 @@ def search_by_name(candidate_name):
     candidates = get_candidates_by_name(candidate_name)
 
     return render_template("search.html",
-                           count=len(candidates),
                            name=candidates,
                            )
 
@@ -41,7 +33,6 @@ def search_by_name(candidate_name):
 def search_by_skills(skill_name):
     candidates_by_skills = get_candidates_by_skill(skill_name)
     return render_template("skill.html",
-                           count=len(candidates_by_skills),
                            skill_name=skill_name,
                            candidates=candidates_by_skills
                            )
