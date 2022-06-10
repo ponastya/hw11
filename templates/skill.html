@@ -1,0 +1,7 @@
+<h1>Найдено со скиллом {{skill_name}}: {{count}}</h1>
+
+{% for person in candidates %}
+  <p>
+    <a href="/candidate/{{ person['id'] }}"> {{person['name']}}</a>
+  </p>
+{% endfor %}
