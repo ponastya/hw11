@@ -26,4 +26,15 @@ def candidates_by_id(uid: int):
                            )
 
 
+@app.route("/search/<candidate_name>")
+def search_by_name(candidate_name):
+    candidates = get_candidates_by_name(candidate_name)
+
+    return render_template("search.html",
+                           count=len(candidates),
+                           name=candidates,
+                           )
+
+
+
 app.run()
